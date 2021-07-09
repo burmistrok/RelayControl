@@ -11,6 +11,8 @@
 #include "Led.h"
 #include "gpio.h"
 #include "HAL_USART.h"
+#include "TheApp.h"
+#include "74HC595.h"
 
 /****************************************************************************************
  * Funtion:
@@ -43,6 +45,10 @@ void vInit(void)
 
 #ifdef USE_THEAPP
 	vTheApp_Init(NULL_PTR);
+#endif
+
+#ifdef USE_74HC595
+	v74HC595_Init(NULL_PTR);
 #endif
 
 #ifdef USE_SCHM

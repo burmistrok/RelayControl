@@ -12,7 +12,11 @@
 #define USE_SCHM
 #define USE_LED
 #define USE_USART
-//#define USE_THEAPP
+#define USE_THEAPP
+#define USE_74HC595
+
+/*Due to low memory size, there can be used Direct call back to the app*/
+#define USE_DIRECT_CALL_BACK
 
 
 

@@ -12,6 +12,8 @@
 #include "Std_types.h"
 #include <stdio.h>
 
+#define USART_STR USART2
+
 
 void vUSART_Init			(const void* configPtr());
 void vUSART_DeInit			(void);

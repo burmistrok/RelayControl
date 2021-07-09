@@ -8,8 +8,9 @@
 
 #include "HAL_USART.h"
 #include "CircularFIFOBuffer.h"
-
-#define USART_STR USART2
+#ifdef USE_DIRECT_CALL_BACK
+#include "TheApp.h"
+#endif
 
 
 static bool bUSARTInit = false;
@@ -60,6 +61,7 @@ void vUSART_DeInit(void)
 void vUSART_MainFunction(void)
 {
 
+#if 0
 	uint16_t u16_len;
 	uint8_t tmp_Buffer[BUFFER_SIZE];
 
@@ -78,6 +80,7 @@ void vUSART_MainFunction(void)
 		}
 
 	}
+#endif
 
 
 }
@@ -94,7 +97,11 @@ void vUSART_ITCallBack(void)
 
 	if ((USART_STR->ISR & USART_ISR_RXNE_Msk) == USART_ISR_RXNE)
 	{
-		bCircularFIFOBuffer_addElement(&RX_Buffer, LL_USART_ReceiveData8(USART_STR));
+#ifdef USE_DIRECT_CALL_BACK
+		vTheApp_CallBackRx( LL_USART_ReceiveData8(USART_STR) );
+#else
+		(void)bCircularFIFOBuffer_addElement(&RX_Buffer, LL_USART_ReceiveData8(USART_STR));
+#endif
 	}
 
 	if ((USART_STR->ISR & USART_ISR_TC_Msk) == USART_ISR_TC)

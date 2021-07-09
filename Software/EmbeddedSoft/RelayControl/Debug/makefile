@@ -11,10 +11,12 @@ RM := rm -rf
 -include sources.mk
 -include Source/Utils/CircularFIFOBuffer/subdir.mk
 -include Source/Utils/subdir.mk
+-include Source/TheApp/subdir.mk
 -include Source/Services/SchM/subdir.mk
 -include Source/Services/Kernel/subdir.mk
 -include Source/Peripherals/HAL_USART/subdir.mk
 -include Source/Cdd/Led/subdir.mk
+-include Source/Cdd/74HC595/subdir.mk
 -include Drivers/STM32L0xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk

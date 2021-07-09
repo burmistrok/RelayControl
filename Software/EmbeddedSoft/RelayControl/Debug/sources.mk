@@ -23,10 +23,12 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/STM32L0xx_HAL_Driver/Src \
+Source/Cdd/74HC595 \
 Source/Cdd/Led \
 Source/Peripherals/HAL_USART \
 Source/Services/Kernel \
 Source/Services/SchM \
+Source/TheApp \
 Source/Utils/CircularFIFOBuffer \
 Source/Utils \
 

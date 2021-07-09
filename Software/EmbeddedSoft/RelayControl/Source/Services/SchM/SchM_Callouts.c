@@ -9,6 +9,7 @@
 #include "SchM.h"
 #include "Led.h"
 #include "HAL_USART.h"
+#include "TheApp.h"
 
 
 /****************************************************************************************
@@ -30,7 +31,7 @@ void vSchM_IdleTask(void)
  */
 void vSchM_BaseRecurrenceTask	(void)
 {
-	//vTheApp_MainFunction();
+	vTheApp_MainFunction();
 	vLed_MainFunction();
 
 }

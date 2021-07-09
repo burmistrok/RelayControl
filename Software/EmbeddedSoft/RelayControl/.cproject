@@ -120,6 +120,10 @@
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/RelayControl/Source/Utils}&quot;"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/RelayControl/Source/Peripherals/HAL_USART}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/RelayControl/Source/TheApp}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/RelayControl/Source/Cdd/74HC595}&quot;"/>
                                     								
                                 </option>
                                 								

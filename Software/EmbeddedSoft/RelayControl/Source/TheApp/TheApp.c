@@ -22,6 +22,11 @@ uint16_t BufferForTrash;																/*create due to HAL_USART_Sendbuffer*/
 #define SIZE_OF_U8		(8u)
 
 #define SET_CMD 		0xAA
+
+#define READ_CMD		0x06
+#define READ_BYTE1		0x53
+#define READ_BYTE2		0x54
+
 #define RESET_CMD		0x52
 #define RESET_BYTE1		0x45
 #define RESET_BYTE2		0x53
@@ -34,6 +39,7 @@ uint16_t BufferForTrash;																/*create due to HAL_USART_Sendbuffer*/
 static bool bTheAppInit = false;
 static uint8_t u8_PrevNbOfRecievedByte;
 static uint16_t u16_CmdNotCompTimer;
+static uint16_t u16_LastSetCombination;
 
 volatile uint8_t u8_NbOfRecievedByte;
 volatile uint8_t ua8_RxBuffer[RX_CMD_LEN];
@@ -64,6 +70,7 @@ void vTheApp_Init(const void* configPtr)
 		ua8_RxBuffer[lu8_cnt] = 0u;
 	}
 	u8_NbOfRecievedByte = 0u;
+	u16_LastSetCombination = 0u;
 	(void)configPtr;
 }
 
@@ -117,6 +124,7 @@ void vTheApp_MainFunction(void)
 					lu16_bytesRec = (uint16_t)ua8_RxBuffer[1u];
 					lu16_bytesRec |= (((uint16_t)ua8_RxBuffer[2u])<<SIZE_OF_U8);
 					lu16_bytesSet = u16SendCmd(lu16_bytesRec);
+					u16_LastSetCombination = lu16_bytesSet;
 
 					lua8_TX_Buffer[0u] = SET_CMD;
 					lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&lu16_bytesSet);
@@ -125,6 +133,21 @@ void vTheApp_MainFunction(void)
 
 					SEND_MSG(lua8_TX_Buffer, CMD_LEN);
 					lb_IsCmdOK = true;
+					break;
+
+
+				case READ_CMD:
+					if ( (ua8_RxBuffer[1u] == READ_BYTE1) && (ua8_RxBuffer[2u] == READ_BYTE2))
+					{
+						lua8_TX_Buffer[0u] = READ_CMD;
+						lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&u16_LastSetCombination);
+						lua8_TX_Buffer[2u] = (uint8_t)((0xFF00 & u16_LastSetCombination)>>SIZE_OF_U8);
+						lua8_TX_Buffer[3u] = ClcXorCrc(lua8_TX_Buffer, (CMD_LEN-1u) );
+
+						SEND_MSG(lua8_TX_Buffer, CMD_LEN);
+						lb_IsCmdOK = true;
+					}
+
 					break;
 
 				case RESET_CMD:

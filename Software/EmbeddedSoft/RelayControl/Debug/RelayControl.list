@@ -5,47 +5,47 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   000000c0  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00000cb0  080000c0  080000c0  000100c0  2**2
+  1 .text         00000ce8  080000c0  080000c0  000100c0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000028  08000d70  08000d70  00010d70  2**0
+  2 .rodata       00000028  08000da8  08000da8  00010da8  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08000d98  08000d98  00020008  2**0
+  3 .ARM.extab    00000000  08000dd0  08000dd0  00020008  2**0
                   CONTENTS
-  4 .ARM          00000000  08000d98  08000d98  00020008  2**0
+  4 .ARM          00000000  08000dd0  08000dd0  00020008  2**0
                   CONTENTS
-  5 .preinit_array 00000000  08000d98  08000d98  00020008  2**0
+  5 .preinit_array 00000000  08000dd0  08000dd0  00020008  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08000d98  08000d98  00010d98  2**2
+  6 .init_array   00000004  08000dd0  08000dd0  00010dd0  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08000d9c  08000d9c  00010d9c  2**2
+  7 .fini_array   00000004  08000dd4  08000dd4  00010dd4  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000008  20000000  08000da0  00020000  2**2
+  8 .data         00000008  20000000  08000dd8  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000ac  20000008  08000da8  00020008  2**2
+  9 .bss          000000ac  20000008  08000de0  00020008  2**2
                   ALLOC
- 10 ._user_heap_stack 00000404  200000b4  08000da8  000200b4  2**0
+ 10 ._user_heap_stack 00000404  200000b4  08000de0  000200b4  2**0
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  00020008  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000c993  00000000  00000000  00020030  2**0
+ 12 .debug_info   0000c9f5  00000000  00000000  00020030  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002d48  00000000  00000000  0002c9c3  2**0
+ 13 .debug_abbrev 00002d6c  00000000  00000000  0002ca25  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_loc    00002036  00000000  00000000  0002f70b  2**0
+ 14 .debug_loc    00002100  00000000  00000000  0002f791  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000428  00000000  00000000  00031748  2**3
+ 15 .debug_aranges 00000428  00000000  00000000  00031898  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_ranges 00000b18  00000000  00000000  00031b70  2**3
+ 16 .debug_ranges 00000b18  00000000  00000000  00031cc0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000d9e3  00000000  00000000  00032688  2**0
+ 17 .debug_macro  0000d9f5  00000000  00000000  000327d8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000acbe  00000000  00000000  0004006b  2**0
+ 18 .debug_line   0000ad42  00000000  00000000  000401cd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0003d5b6  00000000  00000000  0004ad29  2**0
+ 19 .debug_str    0003d5fb  00000000  00000000  0004af0f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000053  00000000  00000000  000882df  2**0
+ 20 .comment      00000053  00000000  00000000  0008850a  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  0000083c  00000000  00000000  00088334  2**2
+ 21 .debug_frame  00000840  00000000  00000000  00088560  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -67,7 +67,7 @@ Disassembly of section .text:
  80000da:	bd10      	pop	{r4, pc}
  80000dc:	20000008 	.word	0x20000008
  80000e0:	00000000 	.word	0x00000000
- 80000e4:	08000d58 	.word	0x08000d58
+ 80000e4:	08000d90 	.word	0x08000d90
 
 080000e8 <frame_dummy>:
  80000e8:	4b04      	ldr	r3, [pc, #16]	; (80000fc <frame_dummy+0x14>)
@@ -82,7 +82,7 @@ Disassembly of section .text:
  80000fa:	46c0      	nop			; (mov r8, r8)
  80000fc:	00000000 	.word	0x00000000
  8000100:	2000000c 	.word	0x2000000c
- 8000104:	08000d58 	.word	0x08000d58
+ 8000104:	08000d90 	.word	0x08000d90
 
 08000108 <__udivsi3>:
  8000108:	2200      	movs	r2, #0
@@ -741,7 +741,7 @@ void MX_USART2_UART_Init(void)
  8000410:	221c      	movs	r2, #28
  8000412:	2100      	movs	r1, #0
  8000414:	a809      	add	r0, sp, #36	; 0x24
- 8000416:	f000 fc97 	bl	8000d48 <memset>
+ 8000416:	f000 fcb3 	bl	8000d80 <memset>
   SET_BIT(RCC->APB1ENR, Periphs);
  800041a:	2080      	movs	r0, #128	; 0x80
   SET_BIT(RCC->IOPENR, Periphs);
@@ -1025,7 +1025,7 @@ LoopFillZerobss:
  800051e:	f7ff ff73 	bl	8000408 <SystemInit>
 /* Call static constructors */
     bl __libc_init_array
- 8000522:	f000 fbed 	bl	8000d00 <__libc_init_array>
+ 8000522:	f000 fc09 	bl	8000d38 <__libc_init_array>
 /* Call the application's entry point.*/
   bl  main
  8000526:	f7ff ff45 	bl	80003b4 <main>
@@ -1054,7 +1054,7 @@ LoopForever:
   ldr r1, =_edata
  800054c:	20000008 	.word	0x20000008
   ldr r2, =_sidata
- 8000550:	08000da0 	.word	0x08000da0
+ 8000550:	08000dd8 	.word	0x08000dd8
   ldr r2, =_sbss
  8000554:	20000008 	.word	0x20000008
   ldr r4, =_ebss
@@ -1236,7 +1236,7 @@ uint32_t RCC_GetHCLKClockFreq(uint32_t SYSCLK_Frequency)
 }
  800062e:	4770      	bx	lr
  8000630:	40021000 	.word	0x40021000
- 8000634:	08000d70 	.word	0x08000d70
+ 8000634:	08000da8 	.word	0x08000da8
 
 08000638 <RCC_GetPCLK1ClockFreq>:
   return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PPRE1));
@@ -1256,7 +1256,7 @@ uint32_t RCC_GetPCLK1ClockFreq(uint32_t HCLK_Frequency)
 }
  8000646:	4770      	bx	lr
  8000648:	40021000 	.word	0x40021000
- 800064c:	08000d80 	.word	0x08000d80
+ 800064c:	08000db8 	.word	0x08000db8
 
 08000650 <RCC_GetPCLK2ClockFreq>:
   return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_PPRE2));
@@ -1276,7 +1276,7 @@ uint32_t RCC_GetPCLK2ClockFreq(uint32_t HCLK_Frequency)
 }
  800065e:	4770      	bx	lr
  8000660:	40021000 	.word	0x40021000
- 8000664:	08000d80 	.word	0x08000d80
+ 8000664:	08000db8 	.word	0x08000db8
 
 08000668 <RCC_PLL_GetFreqDomain_SYS>:
 /**
@@ -1342,7 +1342,7 @@ uint32_t RCC_PLL_GetFreqDomain_SYS(void)
  80006a4:	40021000 	.word	0x40021000
  80006a8:	ff48e500 	.word	0xff48e500
  80006ac:	00f42400 	.word	0x00f42400
- 80006b0:	08000d88 	.word	0x08000d88
+ 80006b0:	08000dc0 	.word	0x08000dc0
  80006b4:	007a1200 	.word	0x007a1200
 
 080006b8 <RCC_GetSystemClockFreq>:
@@ -1871,13 +1871,13 @@ void vUSART_Init(const void* configPtr())
  8000962:	2232      	movs	r2, #50	; 0x32
  8000964:	2100      	movs	r1, #0
  8000966:	3002      	adds	r0, #2
- 8000968:	f000 f9ee 	bl	8000d48 <memset>
+ 8000968:	f000 fa0a 	bl	8000d80 <memset>
 	memset(RX_Buffer.Buffer, 0, BUFFER_SIZE);
  800096c:	4806      	ldr	r0, [pc, #24]	; (8000988 <vUSART_Init+0x30>)
  800096e:	2232      	movs	r2, #50	; 0x32
  8000970:	2100      	movs	r1, #0
  8000972:	3002      	adds	r0, #2
- 8000974:	f000 f9e8 	bl	8000d48 <memset>
+ 8000974:	f000 fa04 	bl	8000d80 <memset>
   * @param  USARTx USART Instance
   * @retval None
   */
@@ -1937,7 +1937,7 @@ __STATIC_INLINE uint8_t LL_USART_ReceiveData8(USART_TypeDef *USARTx)
 #ifdef USE_DIRECT_CALL_BACK
 		vTheApp_CallBackRx( LL_USART_ReceiveData8(USART_STR) );
  80009a6:	b2c0      	uxtb	r0, r0
- 80009a8:	f000 f970 	bl	8000c8c <vTheApp_CallBackRx>
+ 80009a8:	f000 f98c 	bl	8000cc4 <vTheApp_CallBackRx>
 #else
 		(void)bCircularFIFOBuffer_addElement(&RX_Buffer, LL_USART_ReceiveData8(USART_STR));
 #endif
@@ -1953,7 +1953,7 @@ __STATIC_INLINE uint8_t LL_USART_ReceiveData8(USART_TypeDef *USARTx)
  80009b4:	466b      	mov	r3, sp
  80009b6:	480a      	ldr	r0, [pc, #40]	; (80009e0 <vUSART_ITCallBack+0x4c>)
  80009b8:	1dd9      	adds	r1, r3, #7
- 80009ba:	f000 f979 	bl	8000cb0 <bCircularFIFOBuffer_getElement>
+ 80009ba:	f000 f995 	bl	8000ce8 <bCircularFIFOBuffer_getElement>
  80009be:	2800      	cmp	r0, #0
  80009c0:	d106      	bne.n	80009d0 <vUSART_ITCallBack+0x3c>
 		{
@@ -2002,7 +2002,7 @@ TE_ERROR HAL_USART_SendChar(TS_USART* USARTx, uint8_t Data)
 
 	if (bCircularFIFOBuffer_addElement(&TX_Buffer, Data) == true )
  80009e6:	4808      	ldr	r0, [pc, #32]	; (8000a08 <HAL_USART_SendChar+0x24>)
- 80009e8:	f000 f975 	bl	8000cd6 <bCircularFIFOBuffer_addElement>
+ 80009e8:	f000 f991 	bl	8000d0e <bCircularFIFOBuffer_addElement>
 		}
 		return ERR_OK;
 	}
@@ -2350,7 +2350,7 @@ void vSchM_BaseRecurrenceTask	(void)
 {
  8000b46:	b510      	push	{r4, lr}
 	vTheApp_MainFunction();
- 8000b48:	f000 f832 	bl	8000bb0 <vTheApp_MainFunction>
+ 8000b48:	f000 f836 	bl	8000bb8 <vTheApp_MainFunction>
 	vLed_MainFunction();
  8000b4c:	f7ff fee6 	bl	800091c <vLed_MainFunction>
 
@@ -2410,347 +2410,383 @@ static void vResetBytesCnt(void)
  8000b70:	7013      	strb	r3, [r2, #0]
 }
  8000b72:	4770      	bx	lr
- 8000b74:	200000b0 	.word	0x200000b0
- 8000b78:	200000a8 	.word	0x200000a8
+ 8000b74:	200000b2 	.word	0x200000b2
+ 8000b78:	200000aa 	.word	0x200000aa
 
 08000b7c <vTheApp_Init>:
 	bTheAppInit = true;
  8000b7c:	2201      	movs	r2, #1
- 8000b7e:	4b07      	ldr	r3, [pc, #28]	; (8000b9c <vTheApp_Init+0x20>)
+ 8000b7e:	4b08      	ldr	r3, [pc, #32]	; (8000ba0 <vTheApp_Init+0x24>)
  8000b80:	701a      	strb	r2, [r3, #0]
 	u8_PrevNbOfRecievedByte = 0u;
  8000b82:	2300      	movs	r3, #0
- 8000b84:	4a06      	ldr	r2, [pc, #24]	; (8000ba0 <vTheApp_Init+0x24>)
+ 8000b84:	4a07      	ldr	r2, [pc, #28]	; (8000ba4 <vTheApp_Init+0x28>)
  8000b86:	7013      	strb	r3, [r2, #0]
 	u16_CmdNotCompTimer = 0u;
- 8000b88:	4a06      	ldr	r2, [pc, #24]	; (8000ba4 <vTheApp_Init+0x28>)
+ 8000b88:	4a07      	ldr	r2, [pc, #28]	; (8000ba8 <vTheApp_Init+0x2c>)
  8000b8a:	8013      	strh	r3, [r2, #0]
 		ua8_RxBuffer[lu8_cnt] = 0u;
- 8000b8c:	4a06      	ldr	r2, [pc, #24]	; (8000ba8 <vTheApp_Init+0x2c>)
+ 8000b8c:	4a07      	ldr	r2, [pc, #28]	; (8000bac <vTheApp_Init+0x30>)
  8000b8e:	7013      	strb	r3, [r2, #0]
  8000b90:	7053      	strb	r3, [r2, #1]
  8000b92:	7093      	strb	r3, [r2, #2]
  8000b94:	70d3      	strb	r3, [r2, #3]
 	u8_NbOfRecievedByte = 0u;
- 8000b96:	4a05      	ldr	r2, [pc, #20]	; (8000bac <vTheApp_Init+0x30>)
+ 8000b96:	4a06      	ldr	r2, [pc, #24]	; (8000bb0 <vTheApp_Init+0x34>)
  8000b98:	7013      	strb	r3, [r2, #0]
+	u16_LastSetCombination = 0u;
+ 8000b9a:	4a06      	ldr	r2, [pc, #24]	; (8000bb4 <vTheApp_Init+0x38>)
+ 8000b9c:	8013      	strh	r3, [r2, #0]
 }
- 8000b9a:	4770      	bx	lr
- 8000b9c:	200000a4 	.word	0x200000a4
- 8000ba0:	200000a8 	.word	0x200000a8
- 8000ba4:	200000a6 	.word	0x200000a6
- 8000ba8:	200000ac 	.word	0x200000ac
- 8000bac:	200000b0 	.word	0x200000b0
+ 8000b9e:	4770      	bx	lr
+ 8000ba0:	200000a4 	.word	0x200000a4
+ 8000ba4:	200000aa 	.word	0x200000aa
+ 8000ba8:	200000a6 	.word	0x200000a6
+ 8000bac:	200000ae 	.word	0x200000ae
+ 8000bb0:	200000b2 	.word	0x200000b2
+ 8000bb4:	200000a8 	.word	0x200000a8
 
-08000bb0 <vTheApp_MainFunction>:
+08000bb8 <vTheApp_MainFunction>:
 	uint8_t lua8_TX_Buffer[CMD_LEN] = {0u,0u,0u,0u};
- 8000bb0:	2300      	movs	r3, #0
+ 8000bb8:	2300      	movs	r3, #0
 {
- 8000bb2:	b573      	push	{r0, r1, r4, r5, r6, lr}
+ 8000bba:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
 	uint8_t lua8_TX_Buffer[CMD_LEN] = {0u,0u,0u,0u};
- 8000bb4:	9301      	str	r3, [sp, #4]
+ 8000bbc:	9301      	str	r3, [sp, #4]
 	if (false == bTheAppInit)
- 8000bb6:	4b2d      	ldr	r3, [pc, #180]	; (8000c6c <vTheApp_MainFunction+0xbc>)
+ 8000bbe:	4b38      	ldr	r3, [pc, #224]	; (8000ca0 <vTheApp_MainFunction+0xe8>)
 	uint8_t lua8_TX_Buffer[CMD_LEN] = {0u,0u,0u,0u};
- 8000bb8:	ad01      	add	r5, sp, #4
+ 8000bc0:	ac01      	add	r4, sp, #4
 	if (false == bTheAppInit)
- 8000bba:	781b      	ldrb	r3, [r3, #0]
- 8000bbc:	2b00      	cmp	r3, #0
- 8000bbe:	d050      	beq.n	8000c62 <vTheApp_MainFunction+0xb2>
+ 8000bc2:	781b      	ldrb	r3, [r3, #0]
+ 8000bc4:	2b00      	cmp	r3, #0
+ 8000bc6:	d065      	beq.n	8000c94 <vTheApp_MainFunction+0xdc>
   __ASM volatile ("cpsid i" : : : "memory");
- 8000bc0:	b672      	cpsid	i
+ 8000bc8:	b672      	cpsid	i
 	lu8_RetVal = u8_NbOfRecievedByte;
- 8000bc2:	4b2b      	ldr	r3, [pc, #172]	; (8000c70 <vTheApp_MainFunction+0xc0>)
- 8000bc4:	781c      	ldrb	r4, [r3, #0]
- 8000bc6:	b2e4      	uxtb	r4, r4
+ 8000bca:	4b36      	ldr	r3, [pc, #216]	; (8000ca4 <vTheApp_MainFunction+0xec>)
+ 8000bcc:	781d      	ldrb	r5, [r3, #0]
+ 8000bce:	b2ed      	uxtb	r5, r5
   __ASM volatile ("cpsie i" : : : "memory");
- 8000bc8:	b662      	cpsie	i
+ 8000bd0:	b662      	cpsie	i
 		if (RX_CMD_LEN == lu8_NbOfRecievedBytes)
- 8000bca:	2c04      	cmp	r4, #4
- 8000bcc:	d147      	bne.n	8000c5e <vTheApp_MainFunction+0xae>
+ 8000bd2:	2d04      	cmp	r5, #4
+ 8000bd4:	d15c      	bne.n	8000c90 <vTheApp_MainFunction+0xd8>
 	uint8_t lu8_Flag = ua8_RxBuffer[0u];
- 8000bce:	4b29      	ldr	r3, [pc, #164]	; (8000c74 <vTheApp_MainFunction+0xc4>)
- 8000bd0:	781a      	ldrb	r2, [r3, #0]
+ 8000bd6:	4b34      	ldr	r3, [pc, #208]	; (8000ca8 <vTheApp_MainFunction+0xf0>)
+ 8000bd8:	781a      	ldrb	r2, [r3, #0]
 		lu8_Flag ^= ua8_RxBuffer[lu8_cnt];
- 8000bd2:	7859      	ldrb	r1, [r3, #1]
- 8000bd4:	7898      	ldrb	r0, [r3, #2]
- 8000bd6:	404a      	eors	r2, r1
- 8000bd8:	78d9      	ldrb	r1, [r3, #3]
+ 8000bda:	7859      	ldrb	r1, [r3, #1]
+ 8000bdc:	7898      	ldrb	r0, [r3, #2]
+ 8000bde:	404a      	eors	r2, r1
+ 8000be0:	78d9      	ldrb	r1, [r3, #3]
 	if (0u == lu8_Flag)
- 8000bda:	4042      	eors	r2, r0
- 8000bdc:	428a      	cmp	r2, r1
- 8000bde:	d008      	beq.n	8000bf2 <vTheApp_MainFunction+0x42>
+ 8000be2:	4042      	eors	r2, r0
+ 8000be4:	428a      	cmp	r2, r1
+ 8000be6:	d008      	beq.n	8000bfa <vTheApp_MainFunction+0x42>
 				vResetBytesCnt();
- 8000be0:	f7ff ffc0 	bl	8000b64 <vResetBytesCnt>
+ 8000be8:	f7ff ffbc 	bl	8000b64 <vResetBytesCnt>
 				SEND_MSG((uint8_t*)CmdNOK_MSG, CMD_LEN);
- 8000be4:	2204      	movs	r2, #4
- 8000be6:	4b24      	ldr	r3, [pc, #144]	; (8000c78 <vTheApp_MainFunction+0xc8>)
- 8000be8:	4924      	ldr	r1, [pc, #144]	; (8000c7c <vTheApp_MainFunction+0xcc>)
- 8000bea:	4825      	ldr	r0, [pc, #148]	; (8000c80 <vTheApp_MainFunction+0xd0>)
- 8000bec:	f7ff ff10 	bl	8000a10 <HAL_USART_SendBuffer>
- 8000bf0:	e01e      	b.n	8000c30 <vTheApp_MainFunction+0x80>
+ 8000bec:	2204      	movs	r2, #4
+ 8000bee:	4b2f      	ldr	r3, [pc, #188]	; (8000cac <vTheApp_MainFunction+0xf4>)
+ 8000bf0:	492f      	ldr	r1, [pc, #188]	; (8000cb0 <vTheApp_MainFunction+0xf8>)
+ 8000bf2:	4830      	ldr	r0, [pc, #192]	; (8000cb4 <vTheApp_MainFunction+0xfc>)
+ 8000bf4:	f7ff ff0c 	bl	8000a10 <HAL_USART_SendBuffer>
+ 8000bf8:	e033      	b.n	8000c62 <vTheApp_MainFunction+0xaa>
 				switch (ua8_RxBuffer[0u])
- 8000bf2:	781a      	ldrb	r2, [r3, #0]
- 8000bf4:	b2d6      	uxtb	r6, r2
- 8000bf6:	2a52      	cmp	r2, #82	; 0x52
- 8000bf8:	d02a      	beq.n	8000c50 <vTheApp_MainFunction+0xa0>
- 8000bfa:	2eaa      	cmp	r6, #170	; 0xaa
- 8000bfc:	d1f0      	bne.n	8000be0 <vTheApp_MainFunction+0x30>
-					lu16_bytesRec = (uint16_t)ua8_RxBuffer[1u];
- 8000bfe:	785a      	ldrb	r2, [r3, #1]
-					lu16_bytesRec |= (((uint16_t)ua8_RxBuffer[2u])<<SIZE_OF_U8);
- 8000c00:	7898      	ldrb	r0, [r3, #2]
- 8000c02:	0200      	lsls	r0, r0, #8
-					lu16_bytesSet = u16SendCmd(lu16_bytesRec);
- 8000c04:	4310      	orrs	r0, r2
- 8000c06:	f7ff fe67 	bl	80008d8 <u16SendCmd>
-					lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&lu16_bytesSet);
- 8000c0a:	b2c3      	uxtb	r3, r0
-					lua8_TX_Buffer[2u] = (uint8_t)((0xFF00 & lu16_bytesSet)>>SIZE_OF_U8);
- 8000c0c:	0a00      	lsrs	r0, r0, #8
- 8000c0e:	b2c0      	uxtb	r0, r0
-					lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&lu16_bytesSet);
- 8000c10:	706b      	strb	r3, [r5, #1]
-					lua8_TX_Buffer[2u] = (uint8_t)((0xFF00 & lu16_bytesSet)>>SIZE_OF_U8);
- 8000c12:	70a8      	strb	r0, [r5, #2]
+ 8000bfa:	781a      	ldrb	r2, [r3, #0]
+ 8000bfc:	b2d6      	uxtb	r6, r2
+ 8000bfe:	2a52      	cmp	r2, #82	; 0x52
+ 8000c00:	d03f      	beq.n	8000c82 <vTheApp_MainFunction+0xca>
+ 8000c02:	4f2a      	ldr	r7, [pc, #168]	; (8000cac <vTheApp_MainFunction+0xf4>)
+ 8000c04:	2eaa      	cmp	r6, #170	; 0xaa
+ 8000c06:	d012      	beq.n	8000c2e <vTheApp_MainFunction+0x76>
+ 8000c08:	2e06      	cmp	r6, #6
+ 8000c0a:	d1ed      	bne.n	8000be8 <vTheApp_MainFunction+0x30>
+					if ( (ua8_RxBuffer[1u] == READ_BYTE1) && (ua8_RxBuffer[2u] == READ_BYTE2))
+ 8000c0c:	785a      	ldrb	r2, [r3, #1]
+ 8000c0e:	2a53      	cmp	r2, #83	; 0x53
+ 8000c10:	d1ea      	bne.n	8000be8 <vTheApp_MainFunction+0x30>
+ 8000c12:	789b      	ldrb	r3, [r3, #2]
+ 8000c14:	2b54      	cmp	r3, #84	; 0x54
+ 8000c16:	d1e7      	bne.n	8000be8 <vTheApp_MainFunction+0x30>
+						lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&u16_LastSetCombination);
+ 8000c18:	4b27      	ldr	r3, [pc, #156]	; (8000cb8 <vTheApp_MainFunction+0x100>)
+						lua8_TX_Buffer[0u] = READ_CMD;
+ 8000c1a:	7026      	strb	r6, [r4, #0]
+						lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&u16_LastSetCombination);
+ 8000c1c:	881b      	ldrh	r3, [r3, #0]
+ 8000c1e:	b2da      	uxtb	r2, r3
+						lua8_TX_Buffer[2u] = (uint8_t)((0xFF00 & u16_LastSetCombination)>>SIZE_OF_U8);
+ 8000c20:	0a1b      	lsrs	r3, r3, #8
+ 8000c22:	70a3      	strb	r3, [r4, #2]
 	uint8_t lu8_RetVal = *Data;
 	uint8_t lu8_cnt = 0u;
 
 	for (lu8_cnt = 1u; lu8_cnt < len; lu8_cnt++)
 	{
 		lu8_RetVal ^= *(Data+lu8_cnt);
- 8000c14:	4058      	eors	r0, r3
- 8000c16:	2356      	movs	r3, #86	; 0x56
- 8000c18:	425b      	negs	r3, r3
- 8000c1a:	4058      	eors	r0, r3
-					lua8_TX_Buffer[3u] = ClcXorCrc(lua8_TX_Buffer, (CMD_LEN-1u) );
- 8000c1c:	70e8      	strb	r0, [r5, #3]
-					SEND_MSG(lua8_TX_Buffer, CMD_LEN);
- 8000c1e:	0022      	movs	r2, r4
- 8000c20:	0029      	movs	r1, r5
- 8000c22:	4b15      	ldr	r3, [pc, #84]	; (8000c78 <vTheApp_MainFunction+0xc8>)
- 8000c24:	4816      	ldr	r0, [pc, #88]	; (8000c80 <vTheApp_MainFunction+0xd0>)
+ 8000c24:	4053      	eors	r3, r2
+ 8000c26:	405e      	eors	r6, r3
+						lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&u16_LastSetCombination);
+ 8000c28:	7062      	strb	r2, [r4, #1]
+						lua8_TX_Buffer[3u] = ClcXorCrc(lua8_TX_Buffer, (CMD_LEN-1u) );
+ 8000c2a:	70e6      	strb	r6, [r4, #3]
+ 8000c2c:	e011      	b.n	8000c52 <vTheApp_MainFunction+0x9a>
+					lu16_bytesRec = (uint16_t)ua8_RxBuffer[1u];
+ 8000c2e:	785a      	ldrb	r2, [r3, #1]
+					lu16_bytesRec |= (((uint16_t)ua8_RxBuffer[2u])<<SIZE_OF_U8);
+ 8000c30:	7898      	ldrb	r0, [r3, #2]
+ 8000c32:	0200      	lsls	r0, r0, #8
+					lu16_bytesSet = u16SendCmd(lu16_bytesRec);
+ 8000c34:	4310      	orrs	r0, r2
+ 8000c36:	f7ff fe4f 	bl	80008d8 <u16SendCmd>
+					u16_LastSetCombination = lu16_bytesSet;
+ 8000c3a:	4b1f      	ldr	r3, [pc, #124]	; (8000cb8 <vTheApp_MainFunction+0x100>)
 					lua8_TX_Buffer[0u] = SET_CMD;
- 8000c26:	702e      	strb	r6, [r5, #0]
-					SEND_MSG(lua8_TX_Buffer, CMD_LEN);
- 8000c28:	f7ff fef2 	bl	8000a10 <HAL_USART_SendBuffer>
+ 8000c3c:	7026      	strb	r6, [r4, #0]
+					u16_LastSetCombination = lu16_bytesSet;
+ 8000c3e:	8018      	strh	r0, [r3, #0]
+					lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&lu16_bytesSet);
+ 8000c40:	b2c3      	uxtb	r3, r0
+					lua8_TX_Buffer[2u] = (uint8_t)((0xFF00 & lu16_bytesSet)>>SIZE_OF_U8);
+ 8000c42:	0a00      	lsrs	r0, r0, #8
+					lua8_TX_Buffer[1u] = (uint8_t)(0x00FF&lu16_bytesSet);
+ 8000c44:	7063      	strb	r3, [r4, #1]
+					lua8_TX_Buffer[2u] = (uint8_t)((0xFF00 & lu16_bytesSet)>>SIZE_OF_U8);
+ 8000c46:	70a0      	strb	r0, [r4, #2]
+		lu8_RetVal ^= *(Data+lu8_cnt);
+ 8000c48:	4058      	eors	r0, r3
+ 8000c4a:	2356      	movs	r3, #86	; 0x56
+ 8000c4c:	425b      	negs	r3, r3
+ 8000c4e:	4058      	eors	r0, r3
+					lua8_TX_Buffer[3u] = ClcXorCrc(lua8_TX_Buffer, (CMD_LEN-1u) );
+ 8000c50:	70e0      	strb	r0, [r4, #3]
+						SEND_MSG(lua8_TX_Buffer, CMD_LEN);
+ 8000c52:	003b      	movs	r3, r7
+ 8000c54:	002a      	movs	r2, r5
+ 8000c56:	0021      	movs	r1, r4
+ 8000c58:	4816      	ldr	r0, [pc, #88]	; (8000cb4 <vTheApp_MainFunction+0xfc>)
+ 8000c5a:	f7ff fed9 	bl	8000a10 <HAL_USART_SendBuffer>
 				vResetBytesCnt();
- 8000c2c:	f7ff ff9a 	bl	8000b64 <vResetBytesCnt>
+ 8000c5e:	f7ff ff81 	bl	8000b64 <vResetBytesCnt>
 			if (u8_PrevNbOfRecievedByte == lu8_NbOfRecievedBytes)
- 8000c30:	4a14      	ldr	r2, [pc, #80]	; (8000c84 <vTheApp_MainFunction+0xd4>)
- 8000c32:	4b15      	ldr	r3, [pc, #84]	; (8000c88 <vTheApp_MainFunction+0xd8>)
- 8000c34:	7811      	ldrb	r1, [r2, #0]
- 8000c36:	42a1      	cmp	r1, r4
- 8000c38:	d114      	bne.n	8000c64 <vTheApp_MainFunction+0xb4>
+ 8000c62:	4a16      	ldr	r2, [pc, #88]	; (8000cbc <vTheApp_MainFunction+0x104>)
+ 8000c64:	4b16      	ldr	r3, [pc, #88]	; (8000cc0 <vTheApp_MainFunction+0x108>)
+ 8000c66:	7811      	ldrb	r1, [r2, #0]
+ 8000c68:	42a9      	cmp	r1, r5
+ 8000c6a:	d114      	bne.n	8000c96 <vTheApp_MainFunction+0xde>
 				if (DEB_TIME_CMD_NOT_REC > u16_CmdNotCompTimer)
- 8000c3a:	881a      	ldrh	r2, [r3, #0]
- 8000c3c:	2a13      	cmp	r2, #19
- 8000c3e:	d801      	bhi.n	8000c44 <vTheApp_MainFunction+0x94>
+ 8000c6c:	881a      	ldrh	r2, [r3, #0]
+ 8000c6e:	2a13      	cmp	r2, #19
+ 8000c70:	d801      	bhi.n	8000c76 <vTheApp_MainFunction+0xbe>
 					u16_CmdNotCompTimer++;
- 8000c40:	3201      	adds	r2, #1
- 8000c42:	801a      	strh	r2, [r3, #0]
+ 8000c72:	3201      	adds	r2, #1
+ 8000c74:	801a      	strh	r2, [r3, #0]
 				if (DEB_TIME_CMD_NOT_REC == u16_CmdNotCompTimer)
- 8000c44:	881b      	ldrh	r3, [r3, #0]
- 8000c46:	2b14      	cmp	r3, #20
- 8000c48:	d10b      	bne.n	8000c62 <vTheApp_MainFunction+0xb2>
+ 8000c76:	881b      	ldrh	r3, [r3, #0]
+ 8000c78:	2b14      	cmp	r3, #20
+ 8000c7a:	d10b      	bne.n	8000c94 <vTheApp_MainFunction+0xdc>
 					vResetBytesCnt();
- 8000c4a:	f7ff ff8b 	bl	8000b64 <vResetBytesCnt>
- 8000c4e:	e008      	b.n	8000c62 <vTheApp_MainFunction+0xb2>
+ 8000c7c:	f7ff ff72 	bl	8000b64 <vResetBytesCnt>
+ 8000c80:	e008      	b.n	8000c94 <vTheApp_MainFunction+0xdc>
 					if ( (ua8_RxBuffer[1u] == RESET_BYTE1) && (ua8_RxBuffer[2u] == RESET_BYTE2))
- 8000c50:	785a      	ldrb	r2, [r3, #1]
- 8000c52:	2a45      	cmp	r2, #69	; 0x45
- 8000c54:	d1c4      	bne.n	8000be0 <vTheApp_MainFunction+0x30>
- 8000c56:	789b      	ldrb	r3, [r3, #2]
- 8000c58:	2b53      	cmp	r3, #83	; 0x53
- 8000c5a:	d1c1      	bne.n	8000be0 <vTheApp_MainFunction+0x30>
- 8000c5c:	e7e6      	b.n	8000c2c <vTheApp_MainFunction+0x7c>
+ 8000c82:	785a      	ldrb	r2, [r3, #1]
+ 8000c84:	2a45      	cmp	r2, #69	; 0x45
+ 8000c86:	d1af      	bne.n	8000be8 <vTheApp_MainFunction+0x30>
+ 8000c88:	789b      	ldrb	r3, [r3, #2]
+ 8000c8a:	2b53      	cmp	r3, #83	; 0x53
+ 8000c8c:	d1ac      	bne.n	8000be8 <vTheApp_MainFunction+0x30>
+ 8000c8e:	e7e6      	b.n	8000c5e <vTheApp_MainFunction+0xa6>
 		if (0u != lu8_NbOfRecievedBytes)
- 8000c5e:	2c00      	cmp	r4, #0
- 8000c60:	d1e6      	bne.n	8000c30 <vTheApp_MainFunction+0x80>
+ 8000c90:	2d00      	cmp	r5, #0
+ 8000c92:	d1e6      	bne.n	8000c62 <vTheApp_MainFunction+0xaa>
 }
- 8000c62:	bd73      	pop	{r0, r1, r4, r5, r6, pc}
+ 8000c94:	bdf7      	pop	{r0, r1, r2, r4, r5, r6, r7, pc}
 				u8_PrevNbOfRecievedByte = lu8_NbOfRecievedBytes;
- 8000c64:	7014      	strb	r4, [r2, #0]
+ 8000c96:	7015      	strb	r5, [r2, #0]
 				u16_CmdNotCompTimer = 0u;
- 8000c66:	2200      	movs	r2, #0
- 8000c68:	801a      	strh	r2, [r3, #0]
- 8000c6a:	e7fa      	b.n	8000c62 <vTheApp_MainFunction+0xb2>
- 8000c6c:	200000a4 	.word	0x200000a4
- 8000c70:	200000b0 	.word	0x200000b0
- 8000c74:	200000ac 	.word	0x200000ac
- 8000c78:	200000aa 	.word	0x200000aa
- 8000c7c:	08000d91 	.word	0x08000d91
- 8000c80:	40004400 	.word	0x40004400
- 8000c84:	200000a8 	.word	0x200000a8
- 8000c88:	200000a6 	.word	0x200000a6
-
-08000c8c <vTheApp_CallBackRx>:
-	if (RX_CMD_LEN > u8_NbOfRecievedByte)
- 8000c8c:	4a06      	ldr	r2, [pc, #24]	; (8000ca8 <vTheApp_CallBackRx+0x1c>)
- 8000c8e:	7813      	ldrb	r3, [r2, #0]
- 8000c90:	2b03      	cmp	r3, #3
- 8000c92:	d807      	bhi.n	8000ca4 <vTheApp_CallBackRx+0x18>
-		ua8_RxBuffer[u8_NbOfRecievedByte] = Data;
- 8000c94:	7813      	ldrb	r3, [r2, #0]
- 8000c96:	4905      	ldr	r1, [pc, #20]	; (8000cac <vTheApp_CallBackRx+0x20>)
- 8000c98:	b2db      	uxtb	r3, r3
- 8000c9a:	54c8      	strb	r0, [r1, r3]
-		u8_NbOfRecievedByte++;
- 8000c9c:	7813      	ldrb	r3, [r2, #0]
- 8000c9e:	3301      	adds	r3, #1
- 8000ca0:	b2db      	uxtb	r3, r3
- 8000ca2:	7013      	strb	r3, [r2, #0]
-}
- 8000ca4:	4770      	bx	lr
- 8000ca6:	46c0      	nop			; (mov r8, r8)
- 8000ca8:	200000b0 	.word	0x200000b0
+ 8000c98:	2200      	movs	r2, #0
+ 8000c9a:	801a      	strh	r2, [r3, #0]
+ 8000c9c:	e7fa      	b.n	8000c94 <vTheApp_MainFunction+0xdc>
+ 8000c9e:	46c0      	nop			; (mov r8, r8)
+ 8000ca0:	200000a4 	.word	0x200000a4
+ 8000ca4:	200000b2 	.word	0x200000b2
+ 8000ca8:	200000ae 	.word	0x200000ae
  8000cac:	200000ac 	.word	0x200000ac
+ 8000cb0:	08000dc9 	.word	0x08000dc9
+ 8000cb4:	40004400 	.word	0x40004400
+ 8000cb8:	200000a8 	.word	0x200000a8
+ 8000cbc:	200000aa 	.word	0x200000aa
+ 8000cc0:	200000a6 	.word	0x200000a6
 
-08000cb0 <bCircularFIFOBuffer_getElement>:
+08000cc4 <vTheApp_CallBackRx>:
+	if (RX_CMD_LEN > u8_NbOfRecievedByte)
+ 8000cc4:	4a06      	ldr	r2, [pc, #24]	; (8000ce0 <vTheApp_CallBackRx+0x1c>)
+ 8000cc6:	7813      	ldrb	r3, [r2, #0]
+ 8000cc8:	2b03      	cmp	r3, #3
+ 8000cca:	d807      	bhi.n	8000cdc <vTheApp_CallBackRx+0x18>
+		ua8_RxBuffer[u8_NbOfRecievedByte] = Data;
+ 8000ccc:	7813      	ldrb	r3, [r2, #0]
+ 8000cce:	4905      	ldr	r1, [pc, #20]	; (8000ce4 <vTheApp_CallBackRx+0x20>)
+ 8000cd0:	b2db      	uxtb	r3, r3
+ 8000cd2:	54c8      	strb	r0, [r1, r3]
+		u8_NbOfRecievedByte++;
+ 8000cd4:	7813      	ldrb	r3, [r2, #0]
+ 8000cd6:	3301      	adds	r3, #1
+ 8000cd8:	b2db      	uxtb	r3, r3
+ 8000cda:	7013      	strb	r3, [r2, #0]
+}
+ 8000cdc:	4770      	bx	lr
+ 8000cde:	46c0      	nop			; (mov r8, r8)
+ 8000ce0:	200000b2 	.word	0x200000b2
+ 8000ce4:	200000ae 	.word	0x200000ae
+
+08000ce8 <bCircularFIFOBuffer_getElement>:
 //***********************************************************************************************
 
 
 // Get the first element from the FIFO queue
 bool bCircularFIFOBuffer_getElement(TS_CircularFIFOBuffer* rg_Buffer, uint8_t* theElement)
 {
- 8000cb0:	b510      	push	{r4, lr}
+ 8000ce8:	b510      	push	{r4, lr}
   if ( rg_Buffer->next == rg_Buffer->first ){
- 8000cb2:	8ec2      	ldrh	r2, [r0, #54]	; 0x36
- 8000cb4:	8e84      	ldrh	r4, [r0, #52]	; 0x34
+ 8000cea:	8ec2      	ldrh	r2, [r0, #54]	; 0x36
+ 8000cec:	8e84      	ldrh	r4, [r0, #52]	; 0x34
 {
- 8000cb6:	0003      	movs	r3, r0
+ 8000cee:	0003      	movs	r3, r0
 	      rg_Buffer->first++;
 	    }else{
 	      rg_Buffer->first = 0;
 	    }
 	  }else{
 	    return false;
- 8000cb8:	2000      	movs	r0, #0
+ 8000cf0:	2000      	movs	r0, #0
   if ( rg_Buffer->next == rg_Buffer->first ){
- 8000cba:	4294      	cmp	r4, r2
- 8000cbc:	d008      	beq.n	8000cd0 <bCircularFIFOBuffer_getElement+0x20>
+ 8000cf2:	4294      	cmp	r4, r2
+ 8000cf4:	d008      	beq.n	8000d08 <bCircularFIFOBuffer_getElement+0x20>
 	    *theElement = rg_Buffer->Buffer[rg_Buffer->first];
- 8000cbe:	189a      	adds	r2, r3, r2
- 8000cc0:	7892      	ldrb	r2, [r2, #2]
- 8000cc2:	700a      	strb	r2, [r1, #0]
+ 8000cf6:	189a      	adds	r2, r3, r2
+ 8000cf8:	7892      	ldrb	r2, [r2, #2]
+ 8000cfa:	700a      	strb	r2, [r1, #0]
 	    if ( rg_Buffer->first != BUFFER_SIZE ){
- 8000cc4:	8eda      	ldrh	r2, [r3, #54]	; 0x36
- 8000cc6:	2a32      	cmp	r2, #50	; 0x32
- 8000cc8:	d003      	beq.n	8000cd2 <bCircularFIFOBuffer_getElement+0x22>
+ 8000cfc:	8eda      	ldrh	r2, [r3, #54]	; 0x36
+ 8000cfe:	2a32      	cmp	r2, #50	; 0x32
+ 8000d00:	d003      	beq.n	8000d0a <bCircularFIFOBuffer_getElement+0x22>
 	      rg_Buffer->first++;
- 8000cca:	3201      	adds	r2, #1
+ 8000d02:	3201      	adds	r2, #1
 	  }
 
 	  return true;// Return !0 always if it is not empty
- 8000ccc:	2001      	movs	r0, #1
+ 8000d04:	2001      	movs	r0, #1
 	      rg_Buffer->first = 0;
- 8000cce:	86da      	strh	r2, [r3, #54]	; 0x36
+ 8000d06:	86da      	strh	r2, [r3, #54]	; 0x36
 }
- 8000cd0:	bd10      	pop	{r4, pc}
+ 8000d08:	bd10      	pop	{r4, pc}
 	      rg_Buffer->first = 0;
- 8000cd2:	2200      	movs	r2, #0
- 8000cd4:	e7fa      	b.n	8000ccc <bCircularFIFOBuffer_getElement+0x1c>
+ 8000d0a:	2200      	movs	r2, #0
+ 8000d0c:	e7fa      	b.n	8000d04 <bCircularFIFOBuffer_getElement+0x1c>
 
-08000cd6 <bCircularFIFOBuffer_addElement>:
+08000d0e <bCircularFIFOBuffer_addElement>:
 
 // Add an element to the FIFO queue
 bool bCircularFIFOBuffer_addElement(TS_CircularFIFOBuffer* rg_Buffer, uint8_t data)
 {
- 8000cd6:	b510      	push	{r4, lr}
- 8000cd8:	0003      	movs	r3, r0
+ 8000d0e:	b510      	push	{r4, lr}
+ 8000d10:	0003      	movs	r3, r0
   if (rg_Buffer->next >= rg_Buffer->first){
- 8000cda:	8e82      	ldrh	r2, [r0, #52]	; 0x34
- 8000cdc:	8ec0      	ldrh	r0, [r0, #54]	; 0x36
- 8000cde:	4282      	cmp	r2, r0
- 8000ce0:	d304      	bcc.n	8000cec <bCircularFIFOBuffer_addElement+0x16>
+ 8000d12:	8e82      	ldrh	r2, [r0, #52]	; 0x34
+ 8000d14:	8ec0      	ldrh	r0, [r0, #54]	; 0x36
+ 8000d16:	4282      	cmp	r2, r0
+ 8000d18:	d304      	bcc.n	8000d24 <bCircularFIFOBuffer_addElement+0x16>
     return (uint16_t) (rg_Buffer->next - rg_Buffer->first);
- 8000ce2:	1a10      	subs	r0, r2, r0
+ 8000d1a:	1a10      	subs	r0, r2, r0
   if (CircularFIFOBuffer_getNumberOfElements(rg_Buffer) == BUFFER_SIZE){
- 8000ce4:	b284      	uxth	r4, r0
+ 8000d1c:	b284      	uxth	r4, r0
 	     }else{
 	      rg_Buffer->next = 0;
 	     }
 	    return true;
 	  }else{
 	    return false;
- 8000ce6:	2000      	movs	r0, #0
+ 8000d1e:	2000      	movs	r0, #0
   if (CircularFIFOBuffer_getNumberOfElements(rg_Buffer) == BUFFER_SIZE){
- 8000ce8:	2c32      	cmp	r4, #50	; 0x32
- 8000cea:	d006      	beq.n	8000cfa <bCircularFIFOBuffer_addElement+0x24>
+ 8000d20:	2c32      	cmp	r4, #50	; 0x32
+ 8000d22:	d006      	beq.n	8000d32 <bCircularFIFOBuffer_addElement+0x24>
 	     rg_Buffer->Buffer[rg_Buffer->next] = data;
- 8000cec:	1898      	adds	r0, r3, r2
- 8000cee:	7081      	strb	r1, [r0, #2]
+ 8000d24:	1898      	adds	r0, r3, r2
+ 8000d26:	7081      	strb	r1, [r0, #2]
 	     if ( rg_Buffer->next != BUFFER_SIZE ){
- 8000cf0:	2a32      	cmp	r2, #50	; 0x32
- 8000cf2:	d003      	beq.n	8000cfc <bCircularFIFOBuffer_addElement+0x26>
+ 8000d28:	2a32      	cmp	r2, #50	; 0x32
+ 8000d2a:	d003      	beq.n	8000d34 <bCircularFIFOBuffer_addElement+0x26>
 	      rg_Buffer->next++;
- 8000cf4:	3201      	adds	r2, #1
+ 8000d2c:	3201      	adds	r2, #1
 	    return true;
- 8000cf6:	2001      	movs	r0, #1
+ 8000d2e:	2001      	movs	r0, #1
 	      rg_Buffer->next = 0;
- 8000cf8:	869a      	strh	r2, [r3, #52]	; 0x34
+ 8000d30:	869a      	strh	r2, [r3, #52]	; 0x34
 	  }
 }
- 8000cfa:	bd10      	pop	{r4, pc}
+ 8000d32:	bd10      	pop	{r4, pc}
 	      rg_Buffer->next = 0;
- 8000cfc:	2200      	movs	r2, #0
- 8000cfe:	e7fa      	b.n	8000cf6 <bCircularFIFOBuffer_addElement+0x20>
+ 8000d34:	2200      	movs	r2, #0
+ 8000d36:	e7fa      	b.n	8000d2e <bCircularFIFOBuffer_addElement+0x20>
 
-08000d00 <__libc_init_array>:
- 8000d00:	b570      	push	{r4, r5, r6, lr}
- 8000d02:	2600      	movs	r6, #0
- 8000d04:	4d0c      	ldr	r5, [pc, #48]	; (8000d38 <__libc_init_array+0x38>)
- 8000d06:	4c0d      	ldr	r4, [pc, #52]	; (8000d3c <__libc_init_array+0x3c>)
- 8000d08:	1b64      	subs	r4, r4, r5
- 8000d0a:	10a4      	asrs	r4, r4, #2
- 8000d0c:	42a6      	cmp	r6, r4
- 8000d0e:	d109      	bne.n	8000d24 <__libc_init_array+0x24>
- 8000d10:	2600      	movs	r6, #0
- 8000d12:	f000 f821 	bl	8000d58 <_init>
- 8000d16:	4d0a      	ldr	r5, [pc, #40]	; (8000d40 <__libc_init_array+0x40>)
- 8000d18:	4c0a      	ldr	r4, [pc, #40]	; (8000d44 <__libc_init_array+0x44>)
- 8000d1a:	1b64      	subs	r4, r4, r5
- 8000d1c:	10a4      	asrs	r4, r4, #2
- 8000d1e:	42a6      	cmp	r6, r4
- 8000d20:	d105      	bne.n	8000d2e <__libc_init_array+0x2e>
- 8000d22:	bd70      	pop	{r4, r5, r6, pc}
- 8000d24:	00b3      	lsls	r3, r6, #2
- 8000d26:	58eb      	ldr	r3, [r5, r3]
- 8000d28:	4798      	blx	r3
- 8000d2a:	3601      	adds	r6, #1
- 8000d2c:	e7ee      	b.n	8000d0c <__libc_init_array+0xc>
- 8000d2e:	00b3      	lsls	r3, r6, #2
- 8000d30:	58eb      	ldr	r3, [r5, r3]
- 8000d32:	4798      	blx	r3
- 8000d34:	3601      	adds	r6, #1
- 8000d36:	e7f2      	b.n	8000d1e <__libc_init_array+0x1e>
- 8000d38:	08000d98 	.word	0x08000d98
- 8000d3c:	08000d98 	.word	0x08000d98
- 8000d40:	08000d98 	.word	0x08000d98
- 8000d44:	08000d9c 	.word	0x08000d9c
+08000d38 <__libc_init_array>:
+ 8000d38:	b570      	push	{r4, r5, r6, lr}
+ 8000d3a:	2600      	movs	r6, #0
+ 8000d3c:	4d0c      	ldr	r5, [pc, #48]	; (8000d70 <__libc_init_array+0x38>)
+ 8000d3e:	4c0d      	ldr	r4, [pc, #52]	; (8000d74 <__libc_init_array+0x3c>)
+ 8000d40:	1b64      	subs	r4, r4, r5
+ 8000d42:	10a4      	asrs	r4, r4, #2
+ 8000d44:	42a6      	cmp	r6, r4
+ 8000d46:	d109      	bne.n	8000d5c <__libc_init_array+0x24>
+ 8000d48:	2600      	movs	r6, #0
+ 8000d4a:	f000 f821 	bl	8000d90 <_init>
+ 8000d4e:	4d0a      	ldr	r5, [pc, #40]	; (8000d78 <__libc_init_array+0x40>)
+ 8000d50:	4c0a      	ldr	r4, [pc, #40]	; (8000d7c <__libc_init_array+0x44>)
+ 8000d52:	1b64      	subs	r4, r4, r5
+ 8000d54:	10a4      	asrs	r4, r4, #2
+ 8000d56:	42a6      	cmp	r6, r4
+ 8000d58:	d105      	bne.n	8000d66 <__libc_init_array+0x2e>
+ 8000d5a:	bd70      	pop	{r4, r5, r6, pc}
+ 8000d5c:	00b3      	lsls	r3, r6, #2
+ 8000d5e:	58eb      	ldr	r3, [r5, r3]
+ 8000d60:	4798      	blx	r3
+ 8000d62:	3601      	adds	r6, #1
+ 8000d64:	e7ee      	b.n	8000d44 <__libc_init_array+0xc>
+ 8000d66:	00b3      	lsls	r3, r6, #2
+ 8000d68:	58eb      	ldr	r3, [r5, r3]
+ 8000d6a:	4798      	blx	r3
+ 8000d6c:	3601      	adds	r6, #1
+ 8000d6e:	e7f2      	b.n	8000d56 <__libc_init_array+0x1e>
+ 8000d70:	08000dd0 	.word	0x08000dd0
+ 8000d74:	08000dd0 	.word	0x08000dd0
+ 8000d78:	08000dd0 	.word	0x08000dd0
+ 8000d7c:	08000dd4 	.word	0x08000dd4
 
-08000d48 <memset>:
- 8000d48:	0003      	movs	r3, r0
- 8000d4a:	1882      	adds	r2, r0, r2
- 8000d4c:	4293      	cmp	r3, r2
- 8000d4e:	d100      	bne.n	8000d52 <memset+0xa>
- 8000d50:	4770      	bx	lr
- 8000d52:	7019      	strb	r1, [r3, #0]
- 8000d54:	3301      	adds	r3, #1
- 8000d56:	e7f9      	b.n	8000d4c <memset+0x4>
+08000d80 <memset>:
+ 8000d80:	0003      	movs	r3, r0
+ 8000d82:	1882      	adds	r2, r0, r2
+ 8000d84:	4293      	cmp	r3, r2
+ 8000d86:	d100      	bne.n	8000d8a <memset+0xa>
+ 8000d88:	4770      	bx	lr
+ 8000d8a:	7019      	strb	r1, [r3, #0]
+ 8000d8c:	3301      	adds	r3, #1
+ 8000d8e:	e7f9      	b.n	8000d84 <memset+0x4>
 
-08000d58 <_init>:
- 8000d58:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8000d5a:	46c0      	nop			; (mov r8, r8)
- 8000d5c:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8000d5e:	bc08      	pop	{r3}
- 8000d60:	469e      	mov	lr, r3
- 8000d62:	4770      	bx	lr
+08000d90 <_init>:
+ 8000d90:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000d92:	46c0      	nop			; (mov r8, r8)
+ 8000d94:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8000d96:	bc08      	pop	{r3}
+ 8000d98:	469e      	mov	lr, r3
+ 8000d9a:	4770      	bx	lr
 
-08000d64 <_fini>:
- 8000d64:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8000d66:	46c0      	nop			; (mov r8, r8)
- 8000d68:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8000d6a:	bc08      	pop	{r3}
- 8000d6c:	469e      	mov	lr, r3
- 8000d6e:	4770      	bx	lr
+08000d9c <_fini>:
+ 8000d9c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000d9e:	46c0      	nop			; (mov r8, r8)
+ 8000da0:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8000da2:	bc08      	pop	{r3}
+ 8000da4:	469e      	mov	lr, r3
+ 8000da6:	4770      	bx	lr

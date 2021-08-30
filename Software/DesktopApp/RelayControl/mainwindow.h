@@ -15,7 +15,21 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private:
     Ui::MainWindow *ui;
+
+    bool isQMessageBoxOpened;
+
+signals:
+    void ReportmsgToCommPort(QString Msg);
+
+
+public slots:
+void ReporError(QString status, QString Msg);
+void QMessageBoxCloseEvent(void);
+
+private slots:
+void on_turnOffAllButton_clicked();
 };
 #endif // MAINWINDOW_H

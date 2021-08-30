@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>791</width>
+    <height>972</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,53 +27,7 @@
      <string>Connect</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>0</y>
-      <width>111</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Set Initial State</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>0</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Turn OFF All</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBoxErr1_1">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>180</y>
-      <width>69</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBoxErr2_1">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>180</y>
-      <width>69</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -99,7 +53,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -132,13 +86,150 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>678</width>
+      <height>798</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QTextEdit" name="ErrPos1_1"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr1_1"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QTextEdit" name="ErrPos1_2"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr1_2"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QTextEdit" name="ErrPos1_3"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr1_3"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QTextEdit" name="ErrPos1_4"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr1_4"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QTextEdit" name="ErrPos2_1"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr2_1"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QTextEdit" name="ErrPos2_2"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr2_2"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QTextEdit" name="ErrPos2_3"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr2_3"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QTextEdit" name="ErrPos2_4"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxErr2_4"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>0</y>
+      <width>341</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_10">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="setInitStsButton">
+         <property name="text">
+          <string>Set Initial State</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="OnlyDbgButton">
+         <property name="text">
+          <string>Only Debuger</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="turnOffAllButton">
+       <property name="text">
+        <string>Turn OFF All</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>791</width>
      <height>21</height>
     </rect>
    </property>

@@ -11,13 +11,16 @@ CONFIG += c++11
 
 SOURCES += \
     backendapp.cpp \
-    commuartwraper.cpp \
+    commprotocolwraper.cpp \
+    commuart.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    Std_Types.h \
     backendapp.h \
-    commuartwraper.h \
+    commprotocolwraper.h \
+    commuart.h \
     mainwindow.h
 
 FORMS += \

@@ -1,10 +1,10 @@
-#ifndef COMMUARTWRAPER_H
-#define COMMUARTWRAPER_H
+#ifndef COMMUART_H
+#define COMMUART_H
 
 #include <QObject>
 #include <QSerialPort>
 
-class CommUARTWraper: public QSerialPort
+class CommUART: public QObject
 {
     Q_OBJECT
 
@@ -14,20 +14,23 @@ private:
 
 
 public:
-    CommUARTWraper();
-    ~CommUARTWraper();
+    CommUART(QObject *parent = nullptr);
+    ~CommUART();
     void IsConnected(void);
 
 signals:
-    void ReportError(QString status, QString Data);
+    void ReportErrorToDriver(QString status, QString Data);
 
 
 public slots:
     void WriteData(QString Data);
     void DataReceived(void);
     bool GetData(QString* Data);
+    void ErrorReporByLL_Driver(QSerialPort::SerialPortError error);
+
+
 
 
 };
 
-#endif // COMMUARTWRAPER_H
+#endif // COMMUART_H

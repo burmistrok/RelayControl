@@ -22,12 +22,13 @@ private:
     bool isQMessageBoxOpened;
 
 signals:
-    void ReportmsgToCommPort(QString Msg);
+    void SendCmdToDevice(QString Msg);
 
 
 public slots:
 void ReporError(QString status, QString Msg);
 void QMessageBoxCloseEvent(void);
+void GetStatus(QString Msg);
 
 private slots:
 void on_turnOffAllButton_clicked();

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "qstringlist.h"
 #include <QMessageBox>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,8 +36,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::ReporError(QString status, QString Msg)
 {
-    if (false == this->isQMessageBoxOpened)
-    {
+
         if (status.contains("ERROR", Qt::CaseInsensitive) )
         {
             QMessageBox::critical(this, status, Msg);
@@ -50,7 +50,6 @@ void MainWindow::ReporError(QString status, QString Msg)
             QMessageBox::warning(this, status, Msg);
         }
         this->isQMessageBoxOpened = true;
-    }
 }
 
 void MainWindow::QMessageBoxCloseEvent(void)
@@ -60,5 +59,11 @@ void MainWindow::QMessageBoxCloseEvent(void)
 
 void MainWindow::on_turnOffAllButton_clicked()
 {
-    emit this->ReportmsgToCommPort("Hello\n");
+    emit this->SendCmdToDevice("Hello\n");
+}
+
+
+void MainWindow::GetStatus(QString Msg)
+{
+    qDebug() << Msg;
 }

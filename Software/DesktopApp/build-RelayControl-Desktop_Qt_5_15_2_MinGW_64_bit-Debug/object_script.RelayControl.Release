@@ -1,0 +1,11 @@
+release/backendapp.o
+release/commondata.o
+release/commprotocolwraper.o
+release/commuart.o
+release/main.o
+release/mainwindow.o
+release/moc_backendapp.o
+release/moc_commondata.o
+release/moc_commprotocolwraper.o
+release/moc_commuart.o
+release/moc_mainwindow.o

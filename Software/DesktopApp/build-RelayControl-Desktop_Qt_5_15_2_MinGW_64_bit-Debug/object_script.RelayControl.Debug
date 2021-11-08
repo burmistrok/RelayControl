@@ -1,0 +1,11 @@
+debug/backendapp.o
+debug/commondata.o
+debug/commprotocolwraper.o
+debug/commuart.o
+debug/main.o
+debug/mainwindow.o
+debug/moc_backendapp.o
+debug/moc_commondata.o
+debug/moc_commprotocolwraper.o
+debug/moc_commuart.o
+debug/moc_mainwindow.o

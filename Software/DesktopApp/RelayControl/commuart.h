@@ -10,7 +10,8 @@ class CommUART: public QObject
 
 private:
     QSerialPort comPort;
-    QString RxBuffer;
+    QByteArray RxBuffer;
+    void GetComPortSettings(QString& port, qint32& baudrate);
 
 
 public:
@@ -23,9 +24,9 @@ signals:
 
 
 public slots:
-    void WriteData(QString Data);
+    void WriteData(QByteArray Data);
     void DataReceived(void);
-    bool GetData(QString* Data);
+    bool GetData(QByteArray* Data);
     void ErrorReporByLL_Driver(QSerialPort::SerialPortError error);
 
 

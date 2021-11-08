@@ -1,5 +1,6 @@
 #include "commuart.h"
 #include <QDebug>
+#include <QFile>
 
 /*Declaration section*/
 
@@ -11,6 +12,44 @@
 /*Static functions*/
 
 
+void CommUART::GetComPortSettings(QString& port, qint32& baudrate)
+{
+    QFile fileMsg("CommConfigFile.txt");
+
+    if(fileMsg.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream textFile(&fileMsg);
+        while(!textFile.atEnd())
+        {
+            QString tempBuffer;
+            bool isFound = false;
+
+
+            tempBuffer = textFile.readLine();
+            if(tempBuffer.contains("COM", Qt::CaseInsensitive))
+            {
+                port.append(tempBuffer);
+                isFound = true;
+            }
+            tempBuffer = textFile.readLine();
+            if(tempBuffer == "9600")
+            {
+                baudrate = tempBuffer.toInt();
+                if(false != isFound)
+                {
+                    break;
+                }
+            }
+
+        }
+    }
+    else
+    {
+        port.append("COM6");
+        baudrate = QSerialPort::Baud9600;
+    }
+}
+
 CommUART::CommUART(QObject *parent) : QObject(parent)
 {
 }
@@ -20,20 +59,18 @@ CommUART::~CommUART()
     comPort.close();
 }
 
-void CommUART::WriteData(QString Data)
+void CommUART::WriteData(QByteArray Data)
 {
-    QByteArray BufferArray = Data.toUtf8();
-    comPort.write(BufferArray);
+    comPort.write(Data);
 }
 
 void CommUART::DataReceived(void)
 {
     if(comPort.isOpen())
     {
-        QString Data = comPort.readAll();
+        QByteArray Data = comPort.readAll();
         if (!Data.isEmpty())
         {
-            qDebug() << Data;
             RxBuffer.append(Data);
         }
     }
@@ -43,7 +80,7 @@ void CommUART::DataReceived(void)
     }
 }
 
-bool CommUART::GetData(QString* Data)
+bool CommUART::GetData(QByteArray* Data)
 {
     bool retVal = false;
 
@@ -60,11 +97,13 @@ bool CommUART::GetData(QString* Data)
 
 void CommUART::IsConnected(void)
 {
-    qDebug() << "Start";
+    QString port;
+    qint32 baudrate = QSerialPort::Baud9600;
     QObject::connect(&comPort, &QSerialPort::readyRead , this, &CommUART::DataReceived);
     QObject::connect(&comPort, &QSerialPort::errorOccurred, this, &CommUART::ErrorReporByLL_Driver);
-    comPort.setPortName("COM4");
-    comPort.setBaudRate(QSerialPort::Baud9600);
+    GetComPortSettings(port, baudrate);
+    comPort.setPortName(port);
+    comPort.setBaudRate(baudrate);
     if(!comPort.open(QIODevice::ReadWrite))
     {
         emit ReportErrorToDriver("Error", comPort.errorString());

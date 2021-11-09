@@ -21,14 +21,10 @@ void vUSART_MainFunction	(void);
 
 void vUSART_ITCallBack(void);
 
+void HAL_USART_SendBuffer(TS_USART* USARTx, uint8_t* Data, uint16_t Len, uint16_t* RecievedLen);
 
-TE_ERROR HAL_USART_GetChar(TS_USART* USARTx, uint8_t* Data);
-
-TE_ERROR HAL_USART_SendChar(TS_USART* USARTx, uint8_t Data);
-
-TE_ERROR HAL_USART_SendBuffer(TS_USART* USARTx, uint8_t* Data, uint16_t Len, uint16_t* RecievedLen);
-
-TE_ERROR HAL_USART_ReceiveBuffer(TS_USART* USARTx, uint8_t* Data, uint16_t Len, uint16_t* RecievedLen);
-
+#ifndef USE_DIRECT_CALL_BACK
+void HAL_USART_ReceiveBuffer(TS_USART* USARTx, uint8_t* Data, uint16_t Len, uint16_t* RecievedLen);
+#endif
 
 #endif /* PERIPHERALS_HAL_USART_HAL_USART_H_ */

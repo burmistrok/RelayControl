@@ -70,7 +70,7 @@ void vTheApp_Init(const void* configPtr)
 		ua8_RxBuffer[lu8_cnt] = 0u;
 	}
 	u8_NbOfRecievedByte = 0u;
-	u16_LastSetCombination = 0u;
+	u16_LastSetCombination = u16SendCmd(u16_LastSetCombination);
 	(void)configPtr;
 }
 

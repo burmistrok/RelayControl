@@ -32,6 +32,8 @@ class Ui_MainWindow
 public:
     QAction *actionConnect;
     QAction *actionSave;
+    QAction *actionSupport;
+    QAction *actionSource_code;
     QWidget *centralwidget;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_9;
@@ -77,6 +79,7 @@ public:
     QMenuBar *menubar;
     QMenu *menuWorkspace;
     QMenu *menuCommunication;
+    QMenu *menuHelp;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -88,6 +91,10 @@ public:
         actionConnect->setObjectName(QString::fromUtf8("actionConnect"));
         actionSave = new QAction(MainWindow);
         actionSave->setObjectName(QString::fromUtf8("actionSave"));
+        actionSupport = new QAction(MainWindow);
+        actionSupport->setObjectName(QString::fromUtf8("actionSupport"));
+        actionSource_code = new QAction(MainWindow);
+        actionSource_code->setObjectName(QString::fromUtf8("actionSource_code"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
@@ -299,6 +306,8 @@ public:
         menuWorkspace->setObjectName(QString::fromUtf8("menuWorkspace"));
         menuCommunication = new QMenu(menubar);
         menuCommunication->setObjectName(QString::fromUtf8("menuCommunication"));
+        menuHelp = new QMenu(menubar);
+        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -306,8 +315,11 @@ public:
 
         menubar->addAction(menuWorkspace->menuAction());
         menubar->addAction(menuCommunication->menuAction());
+        menubar->addAction(menuHelp->menuAction());
         menuWorkspace->addAction(actionSave);
         menuCommunication->addAction(actionConnect);
+        menuHelp->addAction(actionSupport);
+        menuHelp->addAction(actionSource_code);
 
         retranslateUi(MainWindow);
 
@@ -319,6 +331,8 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionConnect->setText(QCoreApplication::translate("MainWindow", "Connect", nullptr));
         actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        actionSupport->setText(QCoreApplication::translate("MainWindow", "Support", nullptr));
+        actionSource_code->setText(QCoreApplication::translate("MainWindow", "Source code", nullptr));
         UpdBoxSts->setText(QCoreApplication::translate("MainWindow", "Send on click/at command", nullptr));
         SendUpdates->setText(QCoreApplication::translate("MainWindow", "Send all updates", nullptr));
         OnlyDbgButton->setText(QCoreApplication::translate("MainWindow", "Only Debuger", nullptr));
@@ -329,6 +343,7 @@ public:
         BoxKL56->setText(QCoreApplication::translate("MainWindow", "Turn On/Off KL56", nullptr));
         menuWorkspace->setTitle(QCoreApplication::translate("MainWindow", "Workspace", nullptr));
         menuCommunication->setTitle(QCoreApplication::translate("MainWindow", "Communication", nullptr));
+        menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
     } // retranslateUi
 
 };

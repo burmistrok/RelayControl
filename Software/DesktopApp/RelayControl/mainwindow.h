@@ -72,5 +72,7 @@ void on_comboBoxErr2_3_currentIndexChanged(const QString &arg1);
 void on_comboBoxErr2_4_currentIndexChanged(const QString &arg1);
 void on_SendUpdates_clicked();
 void on_comboBoxErr1_5_currentIndexChanged(const QString &arg1);
+void on_actionSupport_triggered();
+void on_actionSource_code_triggered();
 };
 #endif // MAINWINDOW_H

@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
     InitActsStr();
     InitActsSts();
     this->isQMessageBoxOpened = false;
-
 }
 
 MainWindow::~MainWindow()
@@ -373,4 +372,14 @@ void MainWindow::on_SendUpdates_clicked()
 void MainWindow::on_comboBoxErr1_5_currentIndexChanged(const QString &arg1)
 {
     this->ActionHandler( CommonData::SimpleRelay5, QMetaEnum::fromType<CommonData::E_BoxSts>().keyToValue(arg1.toUtf8()));
+}
+
+void MainWindow::on_actionSupport_triggered()
+{
+    QMessageBox::information(this, "Some advices", "If you have changed some comments on a error, please save your modifications using Workspace/Save button.\n\r\n\rTo set more than one error in one click concomitant, please use \"Send on click/at command\" box  and \"Send all updates\" button.");
+}
+
+void MainWindow::on_actionSource_code_triggered()
+{
+    QMessageBox::information(this, "Source code", "Source code could be found on\n\rhttps://github.com/burmistrok/RelayControl");
 }
